@@ -1,13 +1,33 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using study_hello.classes;
 
-var obj = new Sample { Id = 1, Name = "Sample Class", Removed = 0, CreationDate = DateTime.Now};
-Console.WriteLine("Sammple Class:\r\n\t {0}", obj.ToString());
+// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Initial tests");
+Menu();
 
-public class Sample
+
+static void Menu()
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public int Removed { get; set; }
-    public DateTime CreationDate { get; set; }
+    int option = -1;
+    
+    while (option != 0)
+    {   
+        Console.Clear();        
+        Console.WriteLine("\t 1. Invert two integers");
+        Console.WriteLine("\r\n\t 0. Quit");
+        Console.Write("\r\nOption: ");
+        string choice = Console.ReadLine();
+
+        if (!int.TryParse(choice, out option)) {
+            Console.WriteLine("Invalid choice. Press ENTER");
+            Console.ReadLine();
+        }
+        
+        switch (option)
+        {
+            case 1: new InvertNumbers().Entry(); break;
+            case 0: continue;
+
+        }
+        option = -1;     
+    }
 }
