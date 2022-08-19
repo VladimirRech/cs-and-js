@@ -14,8 +14,9 @@ static void Menu()
         Console.Clear();        
         Console.WriteLine("\t 1. Invert two integers");
         Console.WriteLine("\t 2. Swap chars ");
+        Console.WriteLine("\t 3. Is this a prime number?");
         Console.WriteLine("\r\n\t 0. Quit");
-        Console.Write("\r\nOption: ");
+        Console.Write("\r\n\tOption: ");
         string choice = Console.ReadLine();
 
         if (!int.TryParse(choice, out option)) {
@@ -27,6 +28,7 @@ static void Menu()
         {
             case 1: new InvertNumbers().Entry(); break;
             case 2: new SwapChar().Swap(); break;
+            case 3: new PrimeNumber().Start(); break;
             case 0: continue;
 
         }
