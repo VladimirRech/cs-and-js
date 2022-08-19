@@ -13,6 +13,7 @@ static void Menu()
     {   
         Console.Clear();        
         Console.WriteLine("\t 1. Invert two integers");
+        Console.WriteLine("\t 2. Swap chars ");
         Console.WriteLine("\r\n\t 0. Quit");
         Console.Write("\r\nOption: ");
         string choice = Console.ReadLine();
@@ -25,9 +26,12 @@ static void Menu()
         switch (option)
         {
             case 1: new InvertNumbers().Entry(); break;
+            case 2: new SwapChar().Swap(); break;
             case 0: continue;
 
         }
-        option = -1;     
+        option = -1;
+        Console.WriteLine("\r\nPress any key to continue");
+        Console.ReadKey();
     }
 }
