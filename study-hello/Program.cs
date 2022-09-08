@@ -1,4 +1,5 @@
 ﻿using study_hello.classes;
+using System.Collections.Generic;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Initial tests");
@@ -15,11 +16,14 @@ static void Menu()
         Console.WriteLine("\t 1. Invert two integers");
         Console.WriteLine("\t 2. Swap chars ");
         Console.WriteLine("\t 3. Is this a prime number?");
+        Console.WriteLine("\t 4. Plus Minus");
+        Console.WriteLine("\t 5. Sum Min/Max");
         Console.WriteLine("\r\n\t 0. Quit");
         Console.Write("\r\n\tOption: ");
         string choice = Console.ReadLine();
 
-        if (!int.TryParse(choice, out option)) {
+        if (!int.TryParse(choice, out option)) 
+        {
             Console.WriteLine("Invalid choice. Press ENTER");
             Console.ReadLine();
         }
@@ -29,6 +33,19 @@ static void Menu()
             case 1: new InvertNumbers().Entry(); break;
             case 2: new SwapChar().Swap(); break;
             case 3: new PrimeNumber().Start(); break;
+            case 4:
+            {
+                var arr = new int[5] {1, 1, 0, -1, -1};
+                PlusMinus.plusMinus(arr.ToList());
+                break;
+            }
+            case 5:
+            {
+                // var arr = new int[5] {1, 3, 2, 4, 5};
+                var arr = new int[5] {1, 3, 5, 7, 9};
+                HackerHank.minMaxSum(arr.ToList());
+                break;
+            }
             case 0: continue;
 
         }
