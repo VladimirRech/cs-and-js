@@ -39,5 +39,18 @@ namespace study_hello.classes
             DateTime t = DateTime.ParseExact(s, "h:mm:sstt", CultureInfo.InvariantCulture);
             return string.Format("{0:HH:mm:ss}", t);
         }
+
+        /// <summary>
+        /// Return the median element of a list with even number of elements after sorted
+        ///
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns></returns>
+        public static int median(List<int> arr)
+        {
+            List<int> srt = arr.OrderBy(i => i).ToList();
+            int m = srt.Count() / 2;
+            return srt[m];
+        }
     }
 }
