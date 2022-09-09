@@ -18,6 +18,7 @@ static void Menu()
         Console.WriteLine("\t 3. Is this a prime number?");
         Console.WriteLine("\t 4. Plus Minus");
         Console.WriteLine("\t 5. Sum Min/Max");
+        Console.WriteLine("\t 6. Time format conversion");
         Console.WriteLine("\r\n\t 0. Quit");
         Console.Write("\r\n\tOption: ");
         string choice = Console.ReadLine();
@@ -44,6 +45,13 @@ static void Menu()
                 // var arr = new int[5] {1, 3, 2, 4, 5};
                 var arr = new int[5] {1, 3, 5, 7, 9};
                 HackerHank.minMaxSum(arr.ToList());
+                break;
+            }
+            case 6: 
+            {
+                string s = "2:08:00PM";
+                Console.WriteLine(s);
+                Console.WriteLine(HackerHank.timeConversion(s)); 
                 break;
             }
             case 0: continue;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using System.Globalization;
 
 namespace study_hello.classes
 {
@@ -24,6 +25,19 @@ namespace study_hello.classes
             }
 
             Console.WriteLine($"{min} {max}");
+        }
+
+        /*
+        * Complete the 'timeConversion' function below.
+        *
+        * The function is expected to return a STRING.
+        * The function accepts STRING s as parameter.
+        */
+
+        public static string timeConversion(string s)
+        {
+            DateTime t = DateTime.ParseExact(s, "h:mm:sstt", CultureInfo.InvariantCulture);
+            return string.Format("{0:HH:mm:ss}", t);
         }
     }
 }
