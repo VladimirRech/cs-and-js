@@ -23,4 +23,13 @@ public class HackerHank_tests
         int returned = study_hello.classes.HackerHank.median(lst);
         Assert.IsTrue(returned == expected, "Should be 3.");
     }
+
+    [Test]
+    public void HackerHank_LonelyInteger_IsTrueLonelyInt()
+    {
+        List<int> lst = (new int[] {1, 2, 3, 4, 3, 2, 1}).ToList();
+        int expected = 4;
+        int returned = study_hello.classes.HackerHank.LonelyInteger(lst);
+        Assert.IsTrue(expected == returned, "It should be 4.");
+    }
 }

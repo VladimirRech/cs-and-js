@@ -52,5 +52,20 @@ namespace study_hello.classes
             int m = srt.Count() / 2;
             return srt[m];
         }
+
+        public static int LonelyInteger(List<int> arr)
+        {
+            List<int> lst = arr.Distinct().ToList();
+
+            for(int i = 0; i < lst.Count(); i++)
+            {
+                if (arr.Count(obj => obj == lst[i]) == 1)
+                {
+                    return lst[i];
+                }
+            }
+
+            return -1;
+        }
     }
 }
