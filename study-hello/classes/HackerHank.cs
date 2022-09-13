@@ -67,5 +67,31 @@ namespace study_hello.classes
 
             return -1;
         }
+
+        /// <summary>
+        /// Calculates the diagonal difference in elements of an quadradict array
+        /// See related test cases to better comprehension.
+        /// </summary>
+        /// <param name="arr"></param>
+        /// <returns></returns>
+        public static int diagonalDifference(List<List<int>> arr)
+        {
+            var diag1 = 0;
+            var diag2 = 0;
+            int j = 0;
+
+            for (int i = 0; i < arr.Count(); i++)
+            {
+                diag1 += arr[i][i];
+            }
+
+            for (int i = arr.Count() - 1; i >= 0; i--)
+            {
+                j = arr.Count() - 1 - i;
+                diag2 += arr[i][j];
+            }
+
+            return System.Math.Abs(diag1 - diag2);
+        }
     }
 }
