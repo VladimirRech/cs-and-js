@@ -20,6 +20,7 @@ static void Menu()
         Console.WriteLine("\t 5. Sum Min/Max");
         Console.WriteLine("\t 6. Time format conversion");
         Console.WriteLine("\t 7. Median");
+        Console.WriteLine("\t 8. New sort");
         Console.WriteLine("\r\n\t 0. Quit");
         Console.Write("\r\n\tOption: ");
         string choice = Console.ReadLine();
@@ -61,6 +62,12 @@ static void Menu()
                 Console.WriteLine(HackerHank.median(arr));
                 break;
 
+            }
+            case 8:
+            {
+                List<int> arr = (new int[] {1, 1, 3, 2, 1}).ToList<int>();
+                HackerHank.countingSort(arr);
+                break;
             }
             case 0: continue;
 
