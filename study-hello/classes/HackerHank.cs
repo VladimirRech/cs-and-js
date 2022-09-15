@@ -11,7 +11,7 @@ namespace study_hello.classes
             // Cria o array de retorno
             List<int> ret = new List<int>();
 
-            foreach (int item in arr)
+            for (int i = 0; i < 100; i++)
             {
                 ret.Add(0);
             }
