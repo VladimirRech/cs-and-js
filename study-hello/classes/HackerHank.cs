@@ -114,5 +114,36 @@ namespace study_hello.classes
 
             return System.Math.Abs(diag1 - diag2);
         }
+
+        public static int SumMatrix(List<List<int>> matrix)
+        {
+            List<int> swap = new List<int>((new int[] { 0, 0, 0, 0 }.ToList()));
+
+            var j = 0;
+
+            // reverse column 2
+            for (int i = 3; i >= 0; i--)
+            {
+                swap[j] = matrix[i][2];
+                j++;
+            }
+
+            for(int i = 0; i < 4; i++)
+            {
+                matrix[i][2] = swap[i];
+            }
+            
+            // reverse row 0
+            matrix[0].Reverse();
+
+            int ret = 0;
+
+            for (int i = 0; i < 2; i++)
+            {
+                ret += matrix[i][0] + matrix[i][1];
+            }
+
+            return ret;
+        }
     }
 }

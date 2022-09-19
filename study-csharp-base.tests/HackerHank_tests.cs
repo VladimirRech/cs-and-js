@@ -72,14 +72,27 @@ public class HackerHank_tests
         lst.Add(lstSwap);
 
         lstSwap = new List<int>();
-        arr2.Split(' ').ToList().ForEach(o => lstSwap.Add(int.Parse(o)));        
+        arr2.Split(' ').ToList().ForEach(o => lstSwap.Add(int.Parse(o)));
         lst.Add(lstSwap);
 
         lstSwap = new List<int>();
-        arr3.Split(' ').ToList().ForEach(o => lstSwap.Add(int.Parse(o)));        
+        arr3.Split(' ').ToList().ForEach(o => lstSwap.Add(int.Parse(o)));
         lst.Add(lstSwap);
 
         int returned = study_hello.classes.HackerHank.diagonalDifference(lst);
         Assert.IsTrue(expected == returned, $"It should be 2, it is {returned}.");
+    }
+
+    [Test]
+    public void HackerHank_TestMatrixSum()
+    {
+        List<List<int>> matrix = new List<List<int>>();
+        matrix.Add((new int[] { 112, 42, 83, 119 }).ToList<int>());
+        matrix.Add((new int[] { 56, 125, 56, 49 }).ToList());
+        matrix.Add((new int[] { 15, 78, 101, 43 }).ToList());
+        matrix.Add((new int[] { 62, 98, 114, 108 }).ToList());
+        int expected = 414;
+        int returned = study_hello.classes.HackerHank.SumMatrix(matrix);
+        Assert.AreEqual(expected, returned, 0, $"It should be {expected} it is {returned}.");
     }
 }
