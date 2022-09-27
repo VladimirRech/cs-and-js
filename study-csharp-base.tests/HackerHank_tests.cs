@@ -133,4 +133,31 @@ public class HackerHank_tests
         int actual = study_hello.classes.HackerHank.flipMatrixb(matrix);
         Assert.AreEqual(expected, actual, 0, $"It should be {expected} it is {actual}.");
     }
+
+    [TestCase("88, 61, 186, 28 | 38, 123, 137, 111 | 153, 153, 114, 133 | 194, 65, 94, 86", 686)]
+    [TestCase("112, 42, 83, 119 | 56, 125, 56, 49 | 15, 78, 101, 43 | 62, 98, 114, 108", 414)]
+    [TestCase("185, 19, 166, 50 | 59, 83, 101, 149 | 128, 178, 182, 101 | 93, 54, 79, 0", 682)]
+    [TestCase("154, 34, 52, 72 | 172, 59, 110, 125 | 148, 155, 177, 42 | 52, 155, 34, 159", 663)]
+    public void HackerHank_FlipMatrixbMany_True(string arr, int expected)
+    {
+        string[] arr1 = arr.Split('|');
+        List<List<int>> lst = new List<List<int>>();
+        List<int> swap;
+
+        foreach (string item in arr1)
+        {
+            string[] arr2 = item.Split(',');
+            swap = new List<int>();
+
+            foreach (string str in arr2)
+            {
+                swap.Add(int.Parse(str));
+            }
+
+            lst.Add(swap);
+        }
+
+        int actual = study_hello.classes.HackerHank.flipMatrixb(lst);
+        Assert.AreEqual(expected, actual, 0, $"It should be {expected} it is {actual}.");
+    }
 }
