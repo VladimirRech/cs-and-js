@@ -115,32 +115,80 @@ namespace study_hello.classes
             return System.Math.Abs(diag1 - diag2);
         }
 
-        public static int SumMatrix(List<List<int>> matrix)
+        public static int flipMatrix(List<List<int>> matrix)
         {
-            List<int> swap = new List<int>((new int[] { 0, 0, 0, 0 }.ToList()));
-
-            var j = 0;
-
-            // reverse column 2
-            for (int i = 3; i >= 0; i--)
-            {
-                swap[j] = matrix[i][2];
-                j++;
-            }
-
-            for(int i = 0; i < 4; i++)
-            {
-                matrix[i][2] = swap[i];
-            }
-            
-            // reverse row 0
-            matrix[0].Reverse();
-
             int ret = 0;
 
+            // Lista de troca
+            List<int> lstSwap = new List<int>();
+            int col = matrix[0].Count() / 2;
+
+            for (int i = matrix[0].Count() - 1; i >= 0; i--)
+            {
+                lstSwap.Add(matrix[i][col]);
+            }
+
+            for (int i = 0; i < lstSwap.Count(); i++)
+            {
+                matrix[i][col] = lstSwap[i];
+            }
+
+            matrix[0].Reverse();
+
+            for (int i = 0; i < col; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    ret += matrix[i][j];
+                }
+            }
+
+            return ret;
+        }
+
+        public static int flipMatrixb(List<List<int>> matrix)
+        {
+            // vetor final
+            int swap = 0;
+            // indexador do vetor final
+            int iFinal = 0;
+            int finalX = 0;
+            int finalY = 0;
+            int ret = 0;
+
+            // iterador principal
             for (int i = 0; i < 2; i++)
             {
-                ret += matrix[i][0] + matrix[i][1];
+                finalX = i == 0 ? matrix.Count - 1 : i + 1;
+
+                for (int j = 0; j < 2; j++)
+                {
+                    swap = 0;
+                    finalY = j == 0 ? matrix[0].Count - 1 : j + 1;
+
+                    if (matrix[i][j] > swap)
+                    {
+                        swap = matrix[i][j];
+                    }
+
+                    if (matrix[i][finalY] > swap)
+                    {
+                        swap = matrix[i][finalY];
+                    }
+
+                    if (matrix[finalX][j] > swap)
+                    {
+                        swap = matrix[finalX][j];
+                    }
+
+                    if (matrix[finalX][finalY] > swap)
+                    {
+                        swap = matrix[finalX][finalY];
+                    }
+
+                    ret += swap;
+                    iFinal++;
+                }
             }
 
             return ret;

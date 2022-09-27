@@ -92,7 +92,45 @@ public class HackerHank_tests
         matrix.Add((new int[] { 15, 78, 101, 43 }).ToList());
         matrix.Add((new int[] { 62, 98, 114, 108 }).ToList());
         int expected = 414;
-        int returned = study_hello.classes.HackerHank.SumMatrix(matrix);
+        int returned = study_hello.classes.HackerHank.flipMatrix(matrix);
         Assert.AreEqual(expected, returned, 0, $"It should be {expected} it is {returned}.");
+    }
+
+    [TestCase("0 0 0 0 0 1|0 0 0 0 0 0|0 0 0 0 0 0|0 0 0 0 0 0|0 0 0 0 0 0|0 0 0 1 0 0", 2)]
+    [TestCase("1 2|3 4", 4)]
+    public void HackerHank_TestFlipMatrixAnyQuadradic_True(string arr, int expected)
+    {
+        string[] arr1 = arr.Split('|');
+        List<List<int>> lst = new List<List<int>>();
+        List<int> swap;
+
+        foreach (string item in arr1)
+        {
+            string[] arr2 = item.Split(' ');
+            swap = new List<int>();
+
+            foreach (string str in arr2)
+            {
+                swap.Add(int.Parse(str));
+            }
+
+            lst.Add(swap);
+        }
+
+        int actual = study_hello.classes.HackerHank.flipMatrix(lst);
+        Assert.AreEqual(expected, actual, 0, $"It should be {expected} it is {actual}.");
+    }
+
+    [Test]
+    public void HackerHank_FlipMatrixb_True()
+    {
+        List<List<int>> matrix = new List<List<int>>();
+        matrix.Add((new int[] { 112, 42, 83, 119 }).ToList());
+        matrix.Add((new int[] { 56, 125, 56, 49 }).ToList());
+        matrix.Add((new int[] { 15, 78, 101, 43 }).ToList());
+        matrix.Add((new int[] { 62, 98, 114, 108 }).ToList());
+        int expected = 414;
+        int actual = study_hello.classes.HackerHank.flipMatrixb(matrix);
+        Assert.AreEqual(expected, actual, 0, $"It should be {expected} it is {actual}.");
     }
 }
