@@ -159,12 +159,12 @@ namespace study_hello.classes
             // iterador principal
             for (int i = 0; i < 2; i++)
             {
-                finalX = i == 0 ? matrix.Count - 1 : i + 1;
+                finalX = i == 0 ? matrix[0].Count - 1 : matrix[0].Count / 2;
 
                 for (int j = 0; j < 2; j++)
                 {
                     swap = 0;
-                    finalY = j == 0 ? matrix[0].Count - 1 : j + 1;
+                    finalY = j == 0 ? matrix[0].Count - 1 : matrix[0].Count / 2;
 
                     if (matrix[i][j] > swap)
                     {
