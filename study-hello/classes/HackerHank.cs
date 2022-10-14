@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Linq;
 using System.Globalization;
 
 namespace study_hello.classes
@@ -196,30 +194,38 @@ namespace study_hello.classes
 
         public static int FlipMatrixMultiColun(List<List<int>> lstMatrix)
         {
+            int matrixMaxColumnIndex = lstMatrix[0].Count() - 1
+                , matrixMaxRowIndex = lstMatrix[0].Count() - 1
+                , matrixHalStepIndex = lstMatrix[0].Count() / 2;
             int startX1 = 0;
-            int startX2 = lstMatrix[0].Count() - 1;
+            int startX2 = matrixMaxRowIndex;
             int startY1 = 0;
-            int startY2 = lstMatrix[0].Count() - 1;
-            int endX1 = lstMatrix[0].Count() / 2;
+            int startY2 = matrixMaxColumnIndex;
+            int endX1 = matrixHalStepIndex;
             int endY1 = endX1;
 
-            Console.WriteLine($"startX1: {startX1}\n\rstartX2: {startX2}\r\nstartY1: {startY1}\r\nstartY2: {startY2}\r\nendX1: {endX1}");
+            // Console.WriteLine($"startX1: {startX1}\n\rstartX2: {startX2}\r\nstartY1: {startY1}\r\nstartY2: {startY2}\r\nendX1: {endX1}");
             int swap = 0;
             int ret = 0;
 
             while (startX1 < endX1)
             {
-                swap = lstMatrix[startX1][startY1] > swap ? lstMatrix[startX1][startY1] : swap;
-                swap = lstMatrix[startX1][startY2] > swap ? lstMatrix[startX1][startY2] : swap;
-                swap = lstMatrix[startX2][startY1] > swap ? lstMatrix[startX2][startY1] : swap;
-                swap = lstMatrix[startX2][startY2] > swap ? lstMatrix[startX2][startY2] : swap;
-                Console.WriteLine($"Ciclo 1: Swap: {swap}");
-                ret += swap;
-                swap = 0;
+                while (startY1 < endY1)
+                {
+                    swap = lstMatrix[startX1][startY1] > swap ? lstMatrix[startX1][startY1] : swap;
+                    swap = lstMatrix[startX1][startY2] > swap ? lstMatrix[startX1][startY2] : swap;
+                    swap = lstMatrix[startX2][startY1] > swap ? lstMatrix[startX2][startY1] : swap;
+                    swap = lstMatrix[startX2][startY2] > swap ? lstMatrix[startX2][startY2] : swap;
+                    ret += swap;
+                    swap = 0;
+                    startY1++;
+                    startY2--;
+                }
+
                 startX1++;
-                startY1++;
                 startX2--;
-                startY2--;
+                startY1 = 0;
+                startY2 = matrixMaxColumnIndex;
             }
 
             return ret;
