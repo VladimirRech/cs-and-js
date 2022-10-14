@@ -1,7 +1,7 @@
 using NUnit.Framework;
 using System.Linq;
 using System.Collections.Generic;
-using study_csharp_base;
+using System;
 
 namespace study_csharp_base.tests;
 
@@ -11,10 +11,7 @@ public class HackerHank_tests
     // [SetUp]
     // public void Setup()
     // {
-    // }
-
-
-    // Criar teste com vários parâmetros e mais o resultado de Expected.
+    // }Console.WriteLine(str); mais o resultado de Expected.
     [Test]
     public void HackerHank_median_IsTrueMedianValue()
     {
@@ -159,5 +156,37 @@ public class HackerHank_tests
 
         int actual = study_hello.classes.HackerHank.flipMatrixb(lst);
         Assert.AreEqual(expected, actual, 0, $"It should be {expected} it is {actual}.");
+    }
+
+    [TestCase("120 175|200 83", 200)]                                                    // 2 x 2
+    [TestCase("88 61 186 28|38 123 137 111|153 153 114 133|194 65 94 86", 686)]          // 4 x 4
+    [TestCase("169 179 105 166 5 156|84 50 5 146 162 108|114 168 157 104 109 153|" +     // 6 x 6
+              "132 84 168 150 92 175|126 101 63 87 170 2|4 189 135 196 157 174", 1512)]
+    [TestCase("22 9 16 192 164 36 58 80|122 59 77 76 144 59 151 149|" +                  // 8 x 8
+              "10 149 163 78 177 164 193 155|100 91 149 59 185 40 6 82|" +
+              "57 186 147 83 132 78 133 8|163 29 41 100 9 144 161 80|" +
+              "22 61 171 76 90 52 23 116|49 175 171 73 82 79 5 138", 2608)]
+    public void HackerHank_FlipMatrixMultiDim_True(string arr, int expected)
+    {
+        string[] arrLines = arr.Split('|');
+        var lstMatrix = new List<List<int>>();
+        List<int> lstSwap;
+
+        foreach (string item in arrLines)
+        {
+            string[] arrNumbers = item.Split(' ');
+            lstSwap = new List<int>();
+
+            foreach (string str in arrNumbers)
+            {
+                lstSwap.Add(int.Parse(str));
+            }
+
+            lstMatrix.Add(lstSwap);
+        }
+
+        int actual = study_hello.classes.HackerHank.FlipMatrixMultiColun(lstMatrix);
+        Assert.AreEqual(expected, actual, 0, $"It should be {expected} it is {actual}.");
+
     }
 }

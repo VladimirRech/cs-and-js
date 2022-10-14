@@ -193,5 +193,36 @@ namespace study_hello.classes
 
             return ret;
         }
+
+        public static int FlipMatrixMultiColun(List<List<int>> lstMatrix)
+        {
+            int startX1 = 0;
+            int startX2 = lstMatrix[0].Count() - 1;
+            int startY1 = 0;
+            int startY2 = lstMatrix[0].Count() - 1;
+            int endX1 = lstMatrix[0].Count() / 2;
+            int endY1 = endX1;
+
+            Console.WriteLine($"startX1: {startX1}\n\rstartX2: {startX2}\r\nstartY1: {startY1}\r\nstartY2: {startY2}\r\nendX1: {endX1}");
+            int swap = 0;
+            int ret = 0;
+
+            while (startX1 < endX1)
+            {
+                swap = lstMatrix[startX1][startY1] > swap ? lstMatrix[startX1][startY1] : swap;
+                swap = lstMatrix[startX1][startY2] > swap ? lstMatrix[startX1][startY2] : swap;
+                swap = lstMatrix[startX2][startY1] > swap ? lstMatrix[startX2][startY1] : swap;
+                swap = lstMatrix[startX2][startY2] > swap ? lstMatrix[startX2][startY2] : swap;
+                Console.WriteLine($"Ciclo 1: Swap: {swap}");
+                ret += swap;
+                swap = 0;
+                startX1++;
+                startY1++;
+                startX2--;
+                startY2--;
+            }
+
+            return ret;
+        }
     }
 }
