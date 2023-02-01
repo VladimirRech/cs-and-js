@@ -21,6 +21,7 @@ static void Menu()
         Console.WriteLine("\t 6. Time format conversion");
         Console.WriteLine("\t 7. Median");
         Console.WriteLine("\t 8. New sort");
+        Console.WriteLine("\t 9. Try event Handler");        
         Console.WriteLine("\r\n\t 0. Quit");
         Console.Write("\r\n\tOption: ");
         string choice = Console.ReadLine();
@@ -69,6 +70,14 @@ static void Menu()
                 HackerHank.countingSort(arr);
                 break;
             }
+            case 9:
+            {
+                var obj = new HandleEventClass();
+                obj.EventTrigger += WriteText;
+                obj.Run(10);
+                break;
+            }
+            
             case 0: continue;
 
         }
@@ -76,4 +85,9 @@ static void Menu()
         Console.WriteLine("\r\nPress any key to continue");
         Console.ReadKey();
     }
+}
+
+static void WriteText(object sender, string text) 
+{
+    Console.WriteLine(text);
 }
