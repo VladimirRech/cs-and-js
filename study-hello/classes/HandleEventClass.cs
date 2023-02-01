@@ -1,4 +1,11 @@
 using System;
+//
+// Shows how to handle events
+// Links:
+// 1. https://learn.microsoft.com/en-us/dotnet/standard/events/
+// 2. https://learn.microsoft.com/en-us/dotnet/api/system.eventhandler?view=net-7.0
+// 3. https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/event
+//
 
 namespace study_hello.classes
 {
