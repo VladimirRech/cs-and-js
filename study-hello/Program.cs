@@ -18,6 +18,10 @@ static void Menu()
         Console.WriteLine("\t 3. Is this a prime number?");
         Console.WriteLine("\t 4. Plus Minus");
         Console.WriteLine("\t 5. Sum Min/Max");
+        Console.WriteLine("\t 6. Time format conversion");
+        Console.WriteLine("\t 7. Median");
+        Console.WriteLine("\t 8. New sort");
+        Console.WriteLine("\t 9. Try event Handler");        
         Console.WriteLine("\r\n\t 0. Quit");
         Console.Write("\r\n\tOption: ");
         string choice = Console.ReadLine();
@@ -46,6 +50,34 @@ static void Menu()
                 HackerHank.minMaxSum(arr.ToList());
                 break;
             }
+            case 6: 
+            {
+                string s = "2:08:00PM";
+                Console.WriteLine(s);
+                Console.WriteLine(HackerHank.timeConversion(s)); 
+                break;
+            }
+            case 7:
+            {
+                List<int> arr = (new int[] { 10, 12, 11}).ToList();
+                Console.WriteLine(HackerHank.median(arr));
+                break;
+
+            }
+            case 8:
+            {
+                List<int> arr = (new int[] {1, 1, 3, 2, 1}).ToList<int>();
+                HackerHank.countingSort(arr);
+                break;
+            }
+            case 9:
+            {
+                var obj = new HandleEventClass();
+                obj.EventTrigger += WriteText;
+                obj.Run(10);
+                break;
+            }
+            
             case 0: continue;
 
         }
@@ -53,4 +85,9 @@ static void Menu()
         Console.WriteLine("\r\nPress any key to continue");
         Console.ReadKey();
     }
+}
+
+static void WriteText(object sender, string text) 
+{
+    Console.WriteLine(text);
 }
