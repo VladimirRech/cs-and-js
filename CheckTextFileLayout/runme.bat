@@ -1,1 +1,1 @@
-.\bin\debug\net7.0\checktextfilelayout.exe C:\Users\rechv\git\cs-and-js\CheckTextFileLayout\Files\layout01.csv teste
+.\bin\debug\net7.0\checktextfilelayout.exe C:\Users\rechv\git\cs-and-js\CheckTextFileLayout\Files\layout01.csv C:\Users\rechv\git\cs-and-js\CheckTextFileLayout\Files\file01_match.txt
