@@ -1,0 +1,1 @@
+.\bin\debug\net7.0\checktextfilelayout.exe C:\Users\rechv\git\cs-and-js\CheckTextFileLayout\Files\layout01.csv teste
