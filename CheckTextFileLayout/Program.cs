@@ -5,10 +5,17 @@ public class Program
 	{
 		if (args.Length < 2)
 		{
-			Console.WriteLine("Uso: CheckTextFileLayout <arq1> <arq2>");
+			Console.WriteLine("Usage: CheckTextFileLayout <arq1> <arq2>");
 			return;
 		}
 
-		List<LayoutFile> lines = CheckFiles.ReadLayout(args[0]); 
+		List<LayoutFile> lines = CheckFiles.ReadLayout(args[0]);
+		
+		if (!CheckFiles.MatchFile(lines, args[1]))
+		{
+			Console.WriteLine($"File {args[1]} doesn't match with the layout in {args[0]} file");
+		}
+		
+		Console.WriteLine("Done.");
 	}	
 }
